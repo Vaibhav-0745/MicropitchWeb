@@ -100,6 +100,85 @@
                 font-size: 2rem;
             }
         }
+
+        /* Hamburger Animation */
+        .hamburger span {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), background 0.3s;
+        }
+        .hamburger.clicked span:nth-child(1) {
+            transform: translateY(3px) scaleX(1.2);
+        }
+        .hamburger.clicked span:nth-child(2) {
+            transform: scaleX(0.8);
+        }
+        .hamburger.clicked span:nth-child(3) {
+            transform: translateY(-3px) scaleX(1.2);
+        }
+        /* Divider for mobile menu */
+        .mobile-menu li {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 0;
+        }
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        /* Enhanced Mobile Menu Drawer */
+        .mobile-menu {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 100%);
+            border-top-right-radius: 18px;
+            border-bottom-right-radius: 18px;
+            box-shadow: 4px 0 24px rgba(74,107,255,0.10), 0 2px 8px rgba(44,62,80,0.08);
+            padding-top: 90px;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            margin: 0;
+        }
+        .mobile-menu li {
+            border-bottom: 1px solid #d1d5db;
+            margin-bottom: 0;
+            padding: 0 0 0 8px;
+        }
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+        .mobile-menu a {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            padding: 18px 0 18px 10px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .mobile-menu a:hover {
+            background: #e0e7ff;
+            color: #4a6bff !important;
+            box-shadow: 0 2px 8px rgba(74,107,255,0.08);
+        }
+        .close-btn {
+            font-size: 30px !important;
+            color: #4a6bff !important;
+            background: #f5f7fa;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+        .close-btn:hover {
+            background: #e0e7ff;
+            color: #2c3e50 !important;
+        }
+        .menu-overlay {
+            backdrop-filter: blur(2px);
+        }
     </style>
 </head>
 <body>
@@ -158,21 +237,14 @@
         mobileMenu.style.left = isOpen ? '-100%' : '0';
         overlay.style.opacity = isOpen ? '0' : '1';
         overlay.style.visibility = isOpen ? 'hidden' : 'visible';
-        
-        // Animate hamburger to X
-        const spans = hamburger.querySelectorAll('span');
-        if (isOpen) {
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = '';
-        } else {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-        }
+        // No hamburger animation needed
     }
     
-    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('click', function() {
+        toggleMenu();
+        this.classList.add('clicked');
+        setTimeout(() => this.classList.remove('clicked'), 350);
+    });
     closeBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
     
@@ -192,21 +264,30 @@
             mobileMenu.style.left = '-100%';
             overlay.style.opacity = '0';
             overlay.style.visibility = 'hidden';
-            
-            // Reset hamburger
-            const spans = hamburger.querySelectorAll('span');
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = '';
+            // No hamburger animation needed
         }
     }
     
     window.addEventListener('resize', handleResponsive);
     handleResponsive();
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent('MicroPitch Contact Form Message');
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+            window.location.href = `mailto:support@micropitch.com?subject=${subject}&body=${body}`;
+        });
+    }
 </script>
 
 <style>
-    /* Hover Effects */
+    /* Hover Effects */ 
     .desktop-menu a:hover {
         color: #4a6bff !important;
     }
@@ -221,6 +302,7 @@
     .mobile-menu li {
         transition: transform 0.3s ease;
     }
+    
     .mobile-menu li:hover {
         transform: translateX(5px);
     }
@@ -357,7 +439,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>About MicroPitch</h3>
-                    <p>MicroPitch is the bridge between innovative startups and visionary investors. We empower</br> new businesses by connecting them with the </br>right funding partners to turn ideas into reality.</br> Our platform offers a unique matchmaking experience, ensuring startups find investors</br> who truly believe in their vision. With a focus </br>on transparency and community, MicroPitch </br>fosters meaningful partnerships that drive </br>growth and success. Whether you’re launching </br>your first venture or seeking the next big opportunity, MicroPitch is your trusted partner</br>in the journey to funding and beyond.</p>
+                    <p>MicroPitch is the bridge between innovative startups and visionary investors. We empower</br> new businesses by connecting them with the </br>right funding partners to turn ideas into reality.</br> Our platform offers a unique matchmaking experience, ensuring startups find investors</br> who truly believe in their vision. With a focus </br>on transparency and community, MicroPitch </br>fosters meaningful partnerships that drive </br>growth and success. Whether you’re launching </br>your first venture or seeking the next big opportunity, MicroPitch is your trusted partner in the journey to funding and beyond.</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
