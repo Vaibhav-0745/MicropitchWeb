@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroPitch - Pitch & Invest in Business Ideas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Hero Section - Desktop View (unchanged) */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        /* Hero Section - Mobile View (fixed) */
+        @media (max-width: 768px) {
+            .hero {
+                background: url('images/logo_name.jpg') no-repeat;
+                background-size: contain;
+                background-position: right center;
+                padding: 2.5rem 0 3rem;
+                /* Add solid background behind text */
+                position: relative;
+            }
+            
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.85);
+                z-index: 0;
+            }
+            
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+                background-color: transparent;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+        }
+        
+        /* Text Styling */
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hamburger Animation */
+        .hamburger span {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), background 0.3s;
+        }
+        .hamburger.clicked span:nth-child(1) {
+            transform: translateY(3px) scaleX(1.2);
+        }
+        .hamburger.clicked span:nth-child(2) {
+            transform: scaleX(0.8);
+        }
+        .hamburger.clicked span:nth-child(3) {
+            transform: translateY(-3px) scaleX(1.2);
+        }
+        /* Divider for mobile menu */
+        .mobile-menu li {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 0;
+        }
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        /* Enhanced Mobile Menu Drawer */
+        .mobile-menu {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 100%);
+            border-top-right-radius: 18px;
+            border-bottom-right-radius: 18px;
+            box-shadow: 4px 0 24px rgba(74,107,255,0.10), 0 2px 8px rgba(44,62,80,0.08);
+            padding-top: 90px;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            margin: 0;
+        }
+        .mobile-menu li {
+            border-bottom: 1px solid #d1d5db;
+            margin-bottom: 0;
+            padding: 0 0 0 8px;
+        }
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+        .mobile-menu a {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            padding: 18px 0 18px 10px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .mobile-menu a:hover {
+            background: #e0e7ff;
+            color: #4a6bff !important;
+            box-shadow: 0 2px 8px rgba(74,107,255,0.08);
+        }
+        .close-btn {
+            font-size: 30px !important;
+            color: #4a6bff !important;
+            background: #f5f7fa;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+        .close-btn:hover {
+            background: #e0e7ff;
+            color: #2c3e50 !important;
+        }
+        .menu-overlay {
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; max-width: 1200px; margin: 0 auto;">
+        <!-- Logo + Name (Left Side) -->
+        <div class="logo">
+            <h1 style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                <img src="images/logo.jpg" alt="MicroPitch Logo" style="height:35px;width:35px;border-radius:50%;object-fit:cover;">
+                Micro<span style="color: #4a6bff;">Pitch</span>
+            </h1>
+        </div>
+
+        <!-- Desktop Menu (Hidden on Mobile) -->
+        <nav class="desktop-menu">
+            <ul style="display: flex; list-style: none; gap: 25px; margin: 0; padding: 0;">
+                <li><a href="#home" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                <li><a href="#features" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Features</a></li>
+                <li><a href="#how-it-works" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">How It Works</a></li>
+                <li><a href="#download" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Download</a></li>
+                <li><a href="#contact" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger Menu (Right Side with Padding) -->
+        <div class="hamburger" style="cursor: pointer; padding-left: 20px; display: none;">
+            <span style="display: block; width: 25px; height: 3px; background: #2c3e50; margin: 5px 0; transition: all 0.3s ease;"></span>
+            <span style="display: block; width: 25px; height: 3px; background: #2c3e50; margin: 5px 0; transition: all 0.3s ease;"></span>
+            <span style="display: block; width: 25px; height: 3px; background: #2c3e50; margin: 5px 0; transition: all 0.3s ease;"></span>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" style="position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100vh; background: white; box-shadow: 2px 0 15px rgba(0,0,0,0.1); transition: all 0.3s ease; padding: 80px 20px 20px; z-index: 998;">
+        <div class="close-btn" style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #2c3e50;">×</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 20px;"><a href="#home" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Home</a></li>
+            <li style="margin-bottom: 20px;"><a href="#features" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Features</a></li>
+            <li style="margin-bottom: 20px;"><a href="#how-it-works" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">How It Works</a></li>
+            <li style="margin-bottom: 20px;"><a href="#download" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Download</a></li>
+            <li style="margin-bottom: 20px;"><a href="#contact" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="menu-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 997; opacity: 0; visibility: hidden; transition: all 0.3s ease;"></div>
+</header>
+
+<script>
+    // Menu Toggle Functionality
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.close-btn');
+    const overlay = document.querySelector('.menu-overlay');
+    
+    function toggleMenu() {
+        const isOpen = mobileMenu.style.left === '0px';
+        mobileMenu.style.left = isOpen ? '-100%' : '0';
+        overlay.style.opacity = isOpen ? '0' : '1';
+        overlay.style.visibility = isOpen ? 'hidden' : 'visible';
+        // No hamburger animation needed
+    }
+    
+    hamburger.addEventListener('click', function() {
+        toggleMenu();
+        this.classList.add('clicked');
+        setTimeout(() => this.classList.remove('clicked'), 350);
+    });
+    closeBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Close when clicking menu links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+    
+    // Responsive handling
+    function handleResponsive() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.desktop-menu').style.display = 'none';
+            document.querySelector('.hamburger').style.display = 'block';
+        } else {
+            document.querySelector('.desktop-menu').style.display = 'block';
+            document.querySelector('.hamburger').style.display = 'none';
+            mobileMenu.style.left = '-100%';
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+            // No hamburger animation needed
+        }
+    }
+    
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent('MicroPitch Contact Form Message');
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+            window.location.href = `mailto:micropitch2025@gmail.com?subject=${subject}&body=${body}`;
+        });
+    }
+</script>
+
+<style>
+    /* Hover Effects */ 
+    .desktop-menu a:hover {
+        color: #4a6bff !important;
+    }
+    .mobile-menu a:hover {
+        color: #4a6bff !important;
+    }
+    .close-btn:hover {
+        color: #4a6bff !important;
+    }
+    
+    /* Mobile Menu Item Animation */
+    .mobile-menu li {
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-menu li:hover {
+        transform: translateX(5px);
+    }
+</style>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Connect Ideas with Investment</h2>
+                    <p>MicroPitch is the platform where entrepreneurs meet investors. Pitch your business idea in minutes and get funding from interested investors.</p>
+                    <a href="#download" class="btn">Download Now</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/logo_name.jpg" alt="MicroPitch App">
+                </div>
+            </div>
+        </section>
+
+        <!-- Rest of your HTML remains unchanged -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose MicroPitch</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Quick Pitches</h3>
+                        <p>Create and share your business idea in under 5 minutes with our streamlined pitch process.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Investor Network</h3>
+                        <p>Access a growing network of investors looking for the next big opportunity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Platform</h3>
+                        <p>All transactions and communications are secured with industry-standard encryption.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Growth Tracking</h3>
+                        <p>Monitor your pitch performance and investor interest in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How MicroPitch Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Create Your Pitch</h3>
+                            <p>Entrepreneurs create a concise pitch with key details about their business idea.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Share with Investors</h3>
+                            <p>Your pitch is shared with our network of verified investors.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Receive Interest</h3>
+                            <p>Investors express interest and start conversations about potential funding.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Secure Funding</h3>
+                            <p>Finalize investment terms and receive funding directly through the platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download">
+            <div class="container">
+                <h2>Download MicroPitch App</h2>
+                <p>Available now for Android devices. iOS version coming soon!</p>
+                <div class="download-options">
+                    <a href="downloads/Micropitch.apk" class="download-btn android" download>
+                        <i class="fab fa-android"></i>
+                        <span>Download APK</span>
+                    </a>
+                    <div class="download-btn ios coming-soon">
+                        <i class="fab fa-apple"></i>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+                <div class="qr-code">
+                    <img src="images/qr-code.png" alt="Scan to download">
+                    <p>Scan to download</p>
+                </div>
+            </div>
+        </section>
+
+      <section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-options">
+            <div class="email-support">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Support</h3>
+                <a href="mailto:micropitch2025@gmail.com">micropitch2025@gmail.com</a>
+            </div>
+            <p class="divider">- OR -</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About MicroPitch</h3>
+                    <p>MicroPitch is the bridge between innovative startups and visionary investors. We empower</br> new businesses by connecting them with the </br>right funding partners to turn ideas into reality.</br> Our platform offers a unique matchmaking experience, ensuring startups find investors</br> who truly believe in their vision. With a focus </br>on transparency and community, MicroPitch </br>fosters meaningful partnerships that drive </br>growth and success. Whether you’re launching </br>your first venture or seeking the next big opportunity, MicroPitch is your trusted partner in the journey to funding and beyond.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MicroPitch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
