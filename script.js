@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu ul');
 
     hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
+        // Only toggle menu, do not toggle hamburger 'active' class
         navMenu.classList.toggle('active');
     });
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu ul li a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
+            // Only close menu, do not touch hamburger 'active' class
             navMenu.classList.remove('active');
         });
     });
