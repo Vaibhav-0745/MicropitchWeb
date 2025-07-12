@@ -179,6 +179,31 @@
         .menu-overlay {
             backdrop-filter: blur(2px);
         }
+
+        /* Privacy Policy Section */
+        .privacy-policy {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .privacy-content h3 {
+            margin-top: 1.5rem;
+            color: #4a6bff;
+        }
+        .privacy-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .privacy-content p {
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -200,6 +225,7 @@
                 <li><a href="#how-it-works" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">How It Works</a></li>
                 <li><a href="#download" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Download</a></li>
                 <li><a href="#contact" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                <li><a href="#privacy" style="color: #2c3e50; font-weight: 600; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
             </ul>
         </nav>
 
@@ -220,10 +246,232 @@
             <li style="margin-bottom: 20px;"><a href="#how-it-works" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">How It Works</a></li>
             <li style="margin-bottom: 20px;"><a href="#download" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Download</a></li>
             <li style="margin-bottom: 20px;"><a href="#contact" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Contact</a></li>
+            <li style="margin-bottom: 20px;"><a href="#privacy" style="color: #2c3e50; font-weight: 600; text-decoration: none; font-size: 18px; display: block;">Privacy Policy</a></li>
         </ul>
     </nav>
     <div class="menu-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 997; opacity: 0; visibility: hidden; transition: all 0.3s ease;"></div>
 </header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Connect Ideas with Investment</h2>
+                <p>MicroPitch is the platform where entrepreneurs meet investors. Pitch your business idea in minutes and get funding from interested investors.</p>
+                <a href="#download" class="btn">Download Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/logo_name.jpg" alt="MicroPitch App">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose MicroPitch</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Quick Pitches</h3>
+                    <p>Create and share your business idea in under 5 minutes with our streamlined pitch process.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Investor Network</h3>
+                    <p>Access a growing network of investors looking for the next big opportunity.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Platform</h3>
+                    <p>All communications are secured with industry-standard encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Growth Tracking</h3>
+                    <p>Monitor your pitch performance and investor interest in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How MicroPitch Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Pitch</h3>
+                        <p>Entrepreneurs create a concise pitch with key details about their business idea.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Share with Investors</h3>
+                        <p>Your pitch is shared with our network of verified investors.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Receive Interest</h3>
+                        <p>Investors express interest and start conversations about potential funding.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Secure Funding</h3>
+                        <p>Finalize investment terms and receive funding directly through the platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Download MicroPitch App</h2>
+            <p>Available now for Android devices. iOS version coming soon!</p>
+            <div class="download-options">
+                <a href="downloads/Micropitch.apk" class="download-btn android" download>
+                    <i class="fab fa-android"></i>
+                    <span>Download APK</span>
+                </a>
+                <div class="download-btn ios coming-soon">
+                    <i class="fab fa-apple"></i>
+                    <span>Coming Soon</span>
+                </div>
+            </div>
+            <div class="qr-code">
+                <img src="images/qr-code.png" alt="Scan to download">
+                <p>Scan to download</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-options">
+                <div class="email-support">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Support</h3>
+                    <a href="mailto:micropitch2025@gmail.com">micropitch2025@gmail.com</a>
+                </div>
+                <p class="divider">- OR -</p>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                    <div id="form-status" style="margin-top:10px;color:#e74c3c;font-weight:600;display:none;">Message is not received to my mail vaibhavmendake25@gmail.com. Please use the email above if urgent.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="privacy" class="privacy-policy">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Privacy Policy</h2>
+            
+            <div class="privacy-content">
+                <h3>1. Information We Collect</h3>
+                <p>We may collect the following types of information:</p>
+                <ul>
+                    <li><strong>Personal Information:</strong> Name, email address, profile picture, etc.</li>
+                    <li><strong>Business Content:</strong> Videos, pitch titles, descriptions, and related metadata.</li>
+                    <li><strong>Usage Data:</strong> Device info, IP address, browser type, app interactions.</li>
+                    <li><strong>Location Data:</strong> If you allow location access.</li>
+                </ul>
+                
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information to:</p>
+                <ul>
+                    <li>Display your startup pitches and allow sharing with other users.</li>
+                    <li>Improve app features and user experience.</li>
+                    <li>Respond to feedback or support requests.</li>
+                    <li>Personalize your feed or notifications.</li>
+                    <li>Comply with legal obligations.</li>
+                </ul>
+                
+                <h3>3. How We Protect Your Information</h3>
+                <ul>
+                    <li>All data is stored securely using industry standards.</li>
+                    <li>Passwords are encrypted.</li>
+                    <li>We do not sell or trade your personal information.</li>
+                </ul>
+                
+                <h3>4. Sharing of Information</h3>
+                <p>We may share information only:</p>
+                <ul>
+                    <li>With trusted partners to help operate the app (e.g. hosting providers).</li>
+                    <li>When required by law.</li>
+                    <li>With your consent, for features like "featured pitch of the week."</li>
+                </ul>
+                
+                <h3>5. Third-Party Services</h3>
+                <p>Our platform may use third-party services (e.g. YouTube, Firebase, analytics tools). These have their own privacy policies.</p>
+                
+                <h3>6. Children's Privacy</h3>
+                <p>MicroPitch is not intended for users under the age of 16.</p>
+                
+                <h3>7. Your Choices</h3>
+                <ul>
+                    <li>You may edit or delete your profile at any time.</li>
+                    <li>You may request your data to be removed by emailing us.</li>
+                </ul>
+                
+                <h3>8. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, contact us at: <a href="mailto:micropitch2025@gmail.com" style="color: #4a6bff;">micropitch2025@gmail.com</a></p>
+                
+                <p style="margin-top: 2rem; font-style: italic; color: #6c757d;">Last updated: July 2023</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About MicroPitch</h3>
+                <p>MicroPitch is the bridge between innovative startups and visionary investors. We empower new businesses by connecting them with the right funding partners to turn ideas into reality. Our platform offers a unique matchmaking experience, ensuring startups find investors who truly believe in their vision. With a focus on transparency and community, MicroPitch fosters meaningful partnerships that drive growth and success. Whether you're launching your first venture or seeking the next big opportunity, MicroPitch is your trusted partner in the journey to funding and beyond.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <!-- Footer bottom content if any -->
+        </div>
+    </div>
+</footer>
 
 <script>
     // Menu Toggle Functionality
@@ -237,7 +485,6 @@
         mobileMenu.style.left = isOpen ? '-100%' : '0';
         overlay.style.opacity = isOpen ? '0' : '1';
         overlay.style.visibility = isOpen ? 'hidden' : 'visible';
-        // No hamburger animation needed
     }
     
     hamburger.addEventListener('click', function() {
@@ -264,7 +511,6 @@
             mobileMenu.style.left = '-100%';
             overlay.style.opacity = '0';
             overlay.style.visibility = 'hidden';
-            // No hamburger animation needed
         }
     }
     
@@ -288,6 +534,23 @@
             }
         });
     }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 </script>
 
 <style>
@@ -311,167 +574,5 @@
         transform: translateX(5px);
     }
 </style>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Connect Ideas with Investment</h2>
-                    <p>MicroPitch is the platform where entrepreneurs meet investors. Pitch your business idea in minutes and get funding from interested investors.</p>
-                    <a href="#download" class="btn">Download Now</a>
-                </div>
-                <div class="hero-image">
-                    <img src="images/logo_name.jpg" alt="MicroPitch App">
-                </div>
-            </div>
-        </section>
-
-        <!-- Rest of your HTML remains unchanged -->
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Why Choose MicroPitch</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Quick Pitches</h3>
-                        <p>Create and share your business idea in under 5 minutes with our streamlined pitch process.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <h3>Investor Network</h3>
-                        <p>Access a growing network of investors looking for the next big opportunity.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Secure Platform</h3>
-                        <p>All communications are secured with industry-standard encryption.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Growth Tracking</h3>
-                        <p>Monitor your pitch performance and investor interest in real-time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="how-it-works">
-            <div class="container">
-                <h2>How MicroPitch Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Create Your Pitch</h3>
-                            <p>Entrepreneurs create a concise pitch with key details about their business idea.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Share with Investors</h3>
-                            <p>Your pitch is shared with our network of verified investors.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Receive Interest</h3>
-                            <p>Investors express interest and start conversations about potential funding.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Secure Funding</h3>
-                            <p>Finalize investment terms and receive funding directly through the platform.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="download" class="download">
-            <div class="container">
-                <h2>Download MicroPitch App</h2>
-                <p>Available now for Android devices. iOS version coming soon!</p>
-                <div class="download-options">
-                    <a href="downloads/Micropitch.apk" class="download-btn android" download>
-                        <i class="fab fa-android"></i>
-                        <span>Download APK</span>
-                    </a>
-                    <div class="download-btn ios coming-soon">
-                        <i class="fab fa-apple"></i>
-                        <span>Coming Soon</span>
-                    </div>
-                </div>
-                <div class="qr-code">
-                    <img src="images/qr-code.png" alt="Scan to download">
-                    <p>Scan to download</p>
-                </div>
-            </div>
-        </section>
-
-      <section id="contact" class="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <div class="contact-options">
-            <div class="email-support">
-                <i class="fas fa-envelope"></i>
-                <h3>Email Support</h3>
-                <a href="mailto:micropitch2025@gmail.com">micropitch2025@gmail.com</a>
-            </div>
-            <p class="divider">- OR -</p>
-            <form id="contact-form">
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-                <div id="form-status" style="margin-top:10px;color:#e74c3c;font-weight:600;display:none;">Message is not received to my mail vaibhavmendake25@gmail.com. Please use the email above if urgent.</div>
-            </form>
-        </div>
-    </div>
-</section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>About MicroPitch</h3>
-                    <p>MicroPitch is the bridge between innovative startups and visionary investors. We empower</br> new businesses by connecting them with the </br>right funding partners to turn ideas into reality.</br> Our platform offers a unique matchmaking experience, ensuring startups find investors</br> who truly believe in their vision. With a focus </br>on transparency and community, MicroPitch </br>fosters meaningful partnerships that drive </br>growth and success. Whether you’re launching </br>your first venture or seeking the next big opportunity, MicroPitch is your trusted partner </br>in the journey to funding and beyond.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#download">Download</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
