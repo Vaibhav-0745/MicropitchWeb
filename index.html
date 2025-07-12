@@ -273,6 +273,7 @@
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -281,7 +282,10 @@
             const message = document.getElementById('message').value;
             const subject = encodeURIComponent('MicroPitch Contact Form Message');
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-            window.location.href = `mailto:micropitch2025@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:vaibhavmendake25@gmail.com?subject=${subject}&body=${body}`;
+            if(formStatus) {
+                formStatus.style.display = 'block';
+            }
         });
     }
 </script>
@@ -340,7 +344,7 @@
                     <div class="feature-card">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Secure Platform</h3>
-                        <p>All transactions and communications are secured with industry-standard encryption.</p>
+                        <p>All communications are secured with industry-standard encryption.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-chart-line"></i>
@@ -420,15 +424,16 @@
             <p class="divider">- OR -</p>
             <form id="contact-form">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
+                <div id="form-status" style="margin-top:10px;color:#e74c3c;font-weight:600;display:none;">Message is not received to my mail vaibhavmendake25@gmail.com. Please use the email above if urgent.</div>
             </form>
         </div>
     </div>
@@ -462,7 +467,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 MicroPitch. All rights reserved.</p>
+                
             </div>
         </div>
     </footer>
